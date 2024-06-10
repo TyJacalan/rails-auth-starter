@@ -24,6 +24,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'rspec-mocks', '~>3.13.0'
   gem 'rspec-rails', '~> 6.1.0'
 end
 
