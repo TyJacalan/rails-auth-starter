@@ -1,3 +1,30 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - "app/helpers/components/**/*"
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*.rb"
+    - "config/**/*.rb"
+
+Layout/LineLength:
+  Exclude:
+    - "bin/**"
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/*.rb"
+    - "bin/**"
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "bin/**"
+
 Style/Documentation:
   Enabled: false
 

@@ -80,9 +80,5 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   # Render public facing errors in development rather than the exception and stack trace
-  config.consider_all_requests_local = if Rails.root.join('tmp/errors-dev.txt').exist?
-                                         false
-                                       else
-                                         true
-                                       end
+  config.consider_all_requests_local = !Rails.root.join('tmp/errors-dev.txt').exist?
 end
