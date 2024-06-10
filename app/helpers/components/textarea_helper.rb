@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Components::TextareaHelper
   def render_textarea(name:, label: false, id: nil, value: nil, **options)
     options.reverse_merge!(rows: 3, required: false, disabled: false,

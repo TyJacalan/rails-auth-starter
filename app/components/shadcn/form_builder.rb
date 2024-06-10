@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Shadcn::FormBuilder < ActionView::Helpers::FormBuilder
   include ActionView::Helpers::TagHelper
 

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Run RuboCop checks
+rubocop
+
+# Auto-correct offenses
+rubocop -a
+
+# Run the test suite
+rspec
+
+# Ensure seeds work
+RAILS_ENV=test bundle exec rails db:reset
