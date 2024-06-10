@@ -54,8 +54,8 @@ Rails.application.configure do
   config.force_ssl = true
 
   # Log to STDOUT by default
-  config.logger = ActiveSupport::Logger.new(STDOUT)
-                                       .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+  config.logger = ActiveSupport::Logger.new($stdout)
+                                       .tap  { |logger| logger.formatter = Logger::Formatter.new }
                                        .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   # Prepend all log lines with the following tags.
@@ -76,7 +76,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Send emails via google smtp
-  config.action_mailer.default_url_options = { host: Rails.application.credentials.dig(:host), protocol: 'https' }
+  config.action_mailer.default_url_options = { host: Rails.application.credentials[:host], protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
