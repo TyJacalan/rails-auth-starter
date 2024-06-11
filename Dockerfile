@@ -34,7 +34,7 @@ RUN bundle install && \
 
 # Install node modules
 COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile
+RUN yarn install --frozen-lockfile
 
 # Copy application code
 COPY . .
