@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Get the directory of the script
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+# Define the directory path relative to the script directory
+directory="$script_dir/../"  # Adjust this relative path as needed
+
+# Check if the number of arguments is correct
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <new_string>"
+    exit 1
+fi
+
+# Define the old strings
+old_str_1="rails-auth-starter"
+old_str_2="rails_auth_starter"
+old_str_3="RAILS_AUTH_STARTER"
+
+# Define the new string from the argument
+new_str="$1"
+
+# Escape underscores in the old strings
+old_str_escaped_1=$(echo "$old_str_1" | sed 's/_/\\_/g')
+old_str_escaped_2=$(echo "$old_str_2" | sed 's/_/\\_/g')
+old_str_escaped_3=$(echo "$old_str_3" | sed 's/_/\\_/g')
+
+# Recursively find and replace the old strings with the new string in all files
+find "$directory" -type f -exec sed -i -e "s/$old_str_escaped_1/$new_str/gI" -e "s/$old_str_escaped_2/$new_str/gI" -e "s/$old_str_escaped_3/$new_str/gI" {} +
+
+# Print a message indicating the replacement process is finished
+echo "Replacement process finished."
